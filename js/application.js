@@ -25,4 +25,9 @@ var finalTotal = function () {
 
 $(document).ready(function () {
   finalTotal();
+
+  $(document).on('click', '.btn.remove', function (event) {
+    $(this).closest('tr').remove();
+    finalTotal();
+  });
 });
