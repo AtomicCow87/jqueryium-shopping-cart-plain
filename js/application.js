@@ -30,4 +30,12 @@ $(document).ready(function () {
     $(this).closest('tr').remove();
     finalTotal();
   });
+
+  var timeout;
+  $(document).on('input', 'tr input', function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      finalTotal();
+    }, 500);
+  });
 });
