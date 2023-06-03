@@ -38,4 +38,22 @@ $(document).ready(function () {
       finalTotal();
     }, 500);
   });
+
+  $('#addItem').on('submit', function (event) {
+    event.preventDefault();
+    var item = $(this).children('[name=item]').val();
+    var price = $(this).children('[name=price]').val();
+    
+    $('tbody').append('<tr>' +
+      '<td class="item">' + item + '</td>' +
+      '<td class="price">' + price + '</td>' +
+      '<td class="quant"><input type="number" value="0" /></td>' +
+      '<td class="total"></td>' +
+      '<td><button class="btn btn-light btn-sm remove">remove</button></td>' +
+    '</tr>');
+
+    finalTotal();
+    $(this).children('[name=item]').val('');
+    $(this).children('[name=price]').val('');
+  });
 });
